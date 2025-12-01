@@ -1,11 +1,10 @@
 package com.example.IoT_project.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+
 import java.time.LocalDateTime;
 
 @Entity
@@ -13,10 +12,12 @@ import java.time.LocalDateTime;
 @Data
 public class SensorReading {
     @Id
-    @GeneratedValue()
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private double temperature;
     private double humidity;
+
+    @CreationTimestamp
     private LocalDateTime localDateTime;
 
     @ManyToOne
