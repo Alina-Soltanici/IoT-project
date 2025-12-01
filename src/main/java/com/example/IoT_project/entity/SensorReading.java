@@ -12,7 +12,8 @@ import java.time.LocalDateTime;
 @Data
 public class SensorReading {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sensor_reading_gen")
+    @SequenceGenerator(name = "sensor_reading_gen", sequenceName = "sensor_reading_sequence", allocationSize = 1)
     private Long id;
     private double temperature;
     private double humidity;
