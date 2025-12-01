@@ -1,7 +1,6 @@
 package com.example.IoT_project.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.util.List;
@@ -10,6 +9,8 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 public class SensorDevice {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String sensorName;
     private String location;
